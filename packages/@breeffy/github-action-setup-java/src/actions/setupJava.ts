@@ -2,39 +2,38 @@ import * as core from '@actions/core';
 import * as installer from '../installer';
 import * as auth from '../auth';
 import * as gpg from '../gpg';
-import * as constants from '../constants';
 import * as path from 'path';
+import {INPUTES, STATES, DEFAULTS} from '../constants';
 
 export const setupJava = async () => {
   try {
-    let version = core.getInput(constants.INPUT_VERSION);
+    let version = core.getInput(INPUTES.VERSION);
     if (!version) {
-      version = core.getInput(constants.INPUT_JAVA_VERSION, {required: true});
+      version = core.getInput(INPUTES.JAVA_VERSION, {required: true});
     }
-    const arch = core.getInput(constants.INPUT_ARCHITECTURE, {required: true});
-    const javaPackage = core.getInput(constants.INPUT_JAVA_PACKAGE, {
+    const arch = core.getInput(INPUTES.ARCHITECTURE, {required: true});
+    const javaPackage = core.getInput(INPUTES.JAVA_PACKAGE, {
       required: true
     });
-    const jdkFile = core.getInput(constants.INPUT_JDK_FILE, {required: false});
+    const jdkFile = core.getInput(INPUTES.JDK_FILE, {required: false});
 
     await installer.getJava(version, arch, jdkFile, javaPackage);
 
     const matchersPath = path.join(__dirname, '..', '..', '.github');
     core.info(`##[add-matcher]${path.join(matchersPath, 'java.json')}`);
 
-    const id = core.getInput(constants.INPUT_SERVER_ID, {required: false});
-    const username = core.getInput(constants.INPUT_SERVER_USERNAME, {
+    const id = core.getInput(INPUTES.SERVER_ID, {required: false});
+    const username = core.getInput(INPUTES.SERVER_USERNAME, {
       required: false
     });
-    const password = core.getInput(constants.INPUT_SERVER_PASSWORD, {
+    const password = core.getInput(INPUTES.SERVER_PASSWORD, {
       required: false
     });
     const gpgPrivateKey =
-      core.getInput(constants.INPUT_GPG_PRIVATE_KEY, {required: false}) ||
-      constants.INPUT_DEFAULT_GPG_PRIVATE_KEY;
+      core.getInput(INPUTES.GPG_PRIVATE_KEY, {required: false}) || undefined;
     const gpgPassphrase =
-      core.getInput(constants.INPUT_GPG_PASSPHRASE, {required: false}) ||
-      (gpgPrivateKey ? constants.INPUT_DEFAULT_GPG_PASSPHRASE : undefined);
+      core.getInput(INPUTES.GPG_PASSPHRASE, {required: false}) ||
+      (gpgPrivateKey ? DEFAULTS.GPG_PASSPHRASE : undefined);
 
     if (gpgPrivateKey) {
       core.setSecret(gpgPrivateKey);
@@ -45,10 +44,7 @@ export const setupJava = async () => {
     if (gpgPrivateKey) {
       core.info('importing private key');
       const keyFingerprint = (await gpg.importKey(gpgPrivateKey)) || '';
-      core.saveState(
-        constants.STATE_GPG_PRIVATE_KEY_FINGERPRINT,
-        keyFingerprint
-      );
+      core.saveState(STATES.GPG_PRIVATE_KEY_FINGERPRINT, keyFingerprint);
     }
   } catch (error) {
     core.setFailed(error.message);
