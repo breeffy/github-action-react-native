@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as gpg from './gpg';
 import * as constants from './constants';
 
-async function run() {
+export const cleanupJava = async () => {
   if (core.getInput(constants.INPUT_GPG_PRIVATE_KEY, {required: false})) {
     core.info('removing private key from keychain');
     try {
@@ -14,6 +14,4 @@ async function run() {
       core.setFailed('failed to remove private key');
     }
   }
-}
-
-run();
+};

@@ -5,7 +5,7 @@ import * as gpg from './gpg';
 import * as constants from './constants';
 import * as path from 'path';
 
-async function run() {
+export const setupJava = async () => {
   try {
     let version = core.getInput(constants.INPUT_VERSION);
     if (!version) {
@@ -53,6 +53,4 @@ async function run() {
   } catch (error) {
     core.setFailed(error.message);
   }
-}
-
-run();
+};
