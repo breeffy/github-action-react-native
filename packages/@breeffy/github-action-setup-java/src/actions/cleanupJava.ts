@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
-import * as gpg from './gpg';
-import * as constants from './constants';
+import * as gpg from '../gpg';
+import * as constants from '../constants';
 
 export const cleanupJava = async () => {
   if (core.getInput(constants.INPUT_GPG_PRIVATE_KEY, {required: false})) {

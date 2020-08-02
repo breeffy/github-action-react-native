@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
-import * as installer from './installer';
-import * as auth from './auth';
-import * as gpg from './gpg';
-import * as constants from './constants';
+import * as installer from '../installer';
+import * as auth from '../auth';
+import * as gpg from '../gpg';
+import * as constants from '../constants';
 import * as path from 'path';
 
 export const setupJava = async () => {
