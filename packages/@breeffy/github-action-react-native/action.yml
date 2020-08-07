@@ -6,6 +6,11 @@ inputs:
     required: false
     description: 'React Native version'
     default: 0.63.2
+  enable-sdkmanager:
+    required: false
+    description: 'Install sdkmanager command line tool. This limits supported Java versions, because
+      sdkmanager doesn\'t support Java >= 9'
+    default: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
