@@ -294,18 +294,18 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@breeffy/actions-toolkit@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@breeffy/actions-toolkit/-/actions-toolkit-0.1.0.tgz#a4f7a4864dd53cb70055c1d94a63c75d8a2ff845"
-  integrity sha512-6VBU1TY3gXhw7Zkeha11UB0lu60mEHyFXLryOOzBATubH6PN5waIKecbSYnn56fLx23HbgdU7qXonv8QA+h5WA==
+"@breeffy/actions-toolkit@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@breeffy/actions-toolkit/-/actions-toolkit-0.2.0.tgz#0996ecf8fd1700dac30856c9f5628ba350d9307b"
+  integrity sha512-0vJ5phOsUE3nRitwdlkDanExTS/6pWXPjETUPSI6CqpG8xJjlRmgv1N6GyH+erKyGHWjNTSJXaebE4DJ0ZCzLg==
   dependencies:
     "@actions/core" "^1.2.4"
     "@actions/exec" "^1.0.4"
-    "@octokit/rest" "^17.9.0"
+    "@octokit/rest" "^17.11.2"
     "@types/flat-cache" "^2.0.0"
     "@types/minimist" "^1.2.0"
     "@types/signale" "^1.4.1"
-    enquirer "^2.3.5"
+    enquirer "^2.3.6"
     minimist "^1.2.5"
     signale "^1.4.0"
 
@@ -1499,7 +1499,7 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@octokit/rest@^17.9.0":
+"@octokit/rest@^17.11.2":
   version "17.11.2"
   resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-17.11.2.tgz#f3dbd46f9f06361c646230fd0ef8598e59183ead"
   integrity sha512-4jTmn8WossTUaLfNDfXk4fVJgbz5JgZE8eCs4BvIb52lvIH8rpVMD1fgRCrHbSd6LRPE5JFZSfAEtszrOq3ZFQ==
@@ -3212,7 +3212,7 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   dependencies:
     once "^1.4.0"
 
-enquirer@^2.3.5:
+enquirer@^2.3.5, enquirer@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/enquirer/-/enquirer-2.3.6.tgz#2a7fe5dd634a1e4125a975ec994ff5456dc3734d"
   integrity sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==

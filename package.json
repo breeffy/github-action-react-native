@@ -9,7 +9,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@breeffy/actions-toolkit": "^0.1.0",
+    "@breeffy/actions-toolkit": "^0.2.0",
     "axios": "^0.19.2",
     "semver": "^7.3.2",
     "shelljs": "^0.8.4"
